@@ -69,6 +69,7 @@ public class algace {
         ba1.deposit(1000);
         ba1.withdraw(1200);
         ba1.display();
+        ba2.display();
 
 
 
