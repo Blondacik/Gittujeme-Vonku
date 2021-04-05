@@ -14,6 +14,16 @@ class ArrayBub {
         nElems++; // increment size
     }
     //--------------------------------------------------------------
+    public long median() {
+        int lowerBound = 0;
+        int upperBound = nElems - 1;
+        int median;
+
+        median = (lowerBound + upperBound) / 2;
+        long stred = a[median];
+        return stred;
+    }
+    //--------------------------------------------------------------
     public void display() // displays array contents
     {
         for(int j=0; j<nElems; j++) // for each element,
@@ -25,10 +35,21 @@ class ArrayBub {
 
     {
         int out, in;
-        for(out=nElems-1; out>1; out--) // outer loop (backward)
-            for(in=0; in<out; in++) // inner loop (forward)
-                if( a[in] > a[in+1] ) // out of order?
-                    swap(in, in+1); // swap them
+        for(out=nElems-1; out>1; out--) { // outer loop (backward)
+            for (in = 0; in < out; in++) { // inner loop (forward)
+                if (a[in] > a[in + 1]) { // out of order?
+                    swap(in, in + 1); // swap them
+                }
+            }
+        }
+        for (out = 0; out<nElems-1 ;out++)
+            for (in = 9 ; in > out; in--)
+                if (a[in] < a[in - 1]) {
+                    swap(in, in - 1);
+        }
+
+
+
     } // end bubbleSort()
     //--------------------------------------------------------------
     private void swap(int one, int two)
@@ -57,10 +78,16 @@ class BubbleSortApp
         arr.insert(00);
         arr.insert(66);
         arr.insert(33);
+        arr.insert(98);
+        arr.insert(108);
+        arr.insert(205);
+        arr.insert(105);
         arr.display(); // display items
         arr.bubbleSort(); // bubble sort them
 
+
         arr.display(); // display them again
+        System.out.println("stredné číslo je :" + " "+ arr.median());
     } // end main()
 } // end class BubbleSortApp
 
